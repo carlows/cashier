@@ -23,6 +23,7 @@ defmodule Cashier.MixProject do
   defp deps do
     [
       {:money, "~> 1.12"},
+      {:decimal, "~> 2.0"},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
     ]
   end

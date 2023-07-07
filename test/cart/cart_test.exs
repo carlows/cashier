@@ -13,7 +13,7 @@ defmodule CartTest do
     :ok
   end
 
-  test "total_items returns the total items in the cart" do
+  test "Cart.total_items/0 returns the total items in the cart" do
     result = Cart.total_items()
     assert result == 0
 
@@ -22,7 +22,7 @@ defmodule CartTest do
     assert result == 1
   end
 
-  test "add_item adds a new item to the cart" do
+  test "Cart.add_item/1 adds a new item to the cart" do
     result = Cart.add_item("GR1")
 
     total = Cart.total_items()
@@ -35,7 +35,7 @@ defmodule CartTest do
     assert product.name == "Green Tea"
   end
 
-  test "add_item increments the quantity of the item in the cart" do
+  test "Cart.add_item/1 increments the quantity of the item in the cart" do
     Cart.add_item("GR1")
     result = Cart.add_item("GR1")
 
@@ -43,13 +43,13 @@ defmodule CartTest do
     assert item.quantity == 2
   end
 
-  test "add_item returns an error if the product is not found in the store" do
+  test "Cart.add_item/1 returns an error if the product is not found in the store" do
     result = Cart.add_item("hello?")
 
     assert {:error, "Product not found"} = result
   end
 
-  test "get_items returns all the items in the cart as a list" do
+  test "Cart.get_items/0 returns all the items in the cart as a list" do
     Cart.add_item("GR1")
     Cart.add_item("SR1")
     Cart.add_item("GR1")
