@@ -12,6 +12,5 @@ Our cashier is going to be splitted into these modules:
 - Cart: the cart state will be stored under a genserver (for simplicity, no database is being introduced).
 - Products: the products list will be stored under a genserver (for simplicity, no database is being introduced).
 - DiscountsConfig: provides access to the business rules for discounts.
-- Checkout: provides the interface to start the checkout process.
-- DiscountProcessor: is responsible for figuring out which discounts to apply to a given product.
+- Checkout: is responsible for figuring out which discounts to apply to a given product and return the final prices.
 - Discount: multiple smaller discount modules which implement the business rules of how to do some calculation.

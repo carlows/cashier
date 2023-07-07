@@ -1,7 +1,7 @@
 defmodule ProductStoreTest do
   @moduledoc false
 
-  use ExUnit.Case
+  use ExUnit.Case, async: true
   import Money.Sigils
 
   setup do
