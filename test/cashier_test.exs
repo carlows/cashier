@@ -22,6 +22,11 @@ defmodule CashierTest do
              "Scanned product Coffee (code: CF1, price: £11.23)\n"
   end
 
+  test "Cashier.clear_items clears all items from the cart" do
+    assert capture_io(fn -> Cashier.clear_items() end) ==
+             "Items cleared!\n"
+  end
+
   test "Cashier.scan_item prints errors when products dont exist in the store" do
     assert capture_io(fn -> Cashier.scan_item("UNEX") end) == "Sorry, cannot scan this product!\n"
   end

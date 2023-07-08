@@ -18,7 +18,7 @@ Run tests:
 
 ```
 mix deps.get
-mix test
+mix test --cover
 ```
 
 Use the cashier:

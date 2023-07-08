@@ -33,18 +33,6 @@ defmodule FixedDiscount do
     }
   end
 
-  def apply_discount(
-        %CartItem{product: product, quantity: quantity},
-        %{minimum: minimum, deduct_amount: deduct_amount} = _config
-      )
-      when quantity >= minimum do
-    %CheckoutItem{
-      product: product,
-      quantity: quantity,
-      total_amount: subtract_amount(product.price, deduct_amount, quantity)
-    }
-  end
-
   def apply_discount(item, _config) do
     ZeroDiscount.apply_discount(item)
   end

@@ -14,7 +14,7 @@ defmodule CheckoutTest do
       quantity: 1
     }
 
-    result = Checkout.process_items([cart_items], [])
+    result = Checkout.process_items([cart_items])
 
     assert [
              %CheckoutItem{

@@ -4,7 +4,7 @@ defmodule Checkout do
   """
 
   @spec process_items([CartItem.t()], any) :: [CheckoutItem.t()]
-  def process_items(items \\ [], config) do
+  def process_items(items \\ [], config \\ []) do
     items
     |> Enum.map(fn item ->
       DiscountProcessor.apply_discount(item, config)
