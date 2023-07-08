@@ -4,6 +4,14 @@ Versions:
 
 elixir 1.14.5, erlang 26.0.1
 
+Cashier is a very simple terminal tool that mimics a process of checkout in a supermarket. There's no graphical UI interface and can only be used through iex.
+
+This diagram shows how the different modules interact with each other:
+
+![image](https://api.monosnap.com/file/download?id=3zfe485puA7BcAmdwyJtA7dx4J5eZP)
+
+The cart and product state is stored in genserver processes for simplicity. There's no user identity built in.
+
 ### Usage
 
 Run tests:
