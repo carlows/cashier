@@ -8,7 +8,7 @@ Cashier is a very simple terminal tool that mimics a process of checkout in a su
 
 This diagram shows how the different modules interact with each other:
 
-![image](https://api.monosnap.com/file/download?id=3zfe485puA7BcAmdwyJtA7dx4J5eZP)
+![image](./diagram.png)
 
 The cart and product state is stored in genserver processes for simplicity. There's no user identity built in.
 
