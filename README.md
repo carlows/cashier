@@ -71,7 +71,9 @@ Cashier.scan_item("CF1")
 Cashier.print_totals()
 ```
 
-The print_totals function accepts an optional configuration, which you might use to change the rules aplpies to the discounts:
+---
+
+The Cashier.print_totals/1 function accepts an optional configuration, which you might use to change the rules applied to the discounts:
 
 ```
 [
