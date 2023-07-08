@@ -1,20 +1,24 @@
 defmodule Cashier.Application do
-  # See https://hexdocs.pm/elixir/Application.html
-  # for more information on OTP Applications
   @moduledoc false
 
   use Application
 
   @impl true
   def start(_type, _args) do
-    children = [
-      # Starts a worker by calling: Cashier.Worker.start_link(arg)
-      # {Cashier.Worker, arg}
-    ]
+    children = children_per_env(Application.get_env(:cashier, :env))
 
-    # See https://hexdocs.pm/elixir/Supervisor.html
-    # for other strategies and supported options
     opts = [strategy: :one_for_one, name: Cashier.Supervisor]
     Supervisor.start_link(children, opts)
+  end
+
+  defp children_per_env(:test) do
+    []
+  end
+
+  defp children_per_env(_) do
+    [
+      {ProductStore, %{}},
+      {Cart, %{}}
+    ]
   end
 end

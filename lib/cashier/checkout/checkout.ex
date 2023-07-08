@@ -3,29 +3,8 @@ defmodule Checkout do
   Checkout is responsible for processing items in the cart by applying discounts.
   """
 
-  import Money.Sigils
-
-  @default_config [
-    %{
-      product_code: "GR1",
-      discount: BuyOneGetOne,
-      minimum: 1
-    },
-    %{
-      product_code: "SR1",
-      discount: FixedDiscount,
-      minimum: 3,
-      deduct_amount: ~M[0_50]
-    },
-    %{
-      product_code: "CF1",
-      discount: TwoThirdsDiscount,
-      minimum: 3
-    },
-  ]
-
   @spec process_items([CartItem.t()], any) :: [CheckoutItem.t()]
-  def process_items(items \\ [], config \\ @default_config) do
+  def process_items(items \\ [], config) do
     items
     |> Enum.map(fn item ->
       DiscountProcessor.apply_discount(item, config)
@@ -33,6 +12,9 @@ defmodule Checkout do
   end
 
   def calculate_total(items) do
-    # asdasd
+    items
+    |> Enum.reduce(Money.new(0), fn curr, acc ->
+      Money.add(acc, curr.total_amount)
+    end)
   end
 end

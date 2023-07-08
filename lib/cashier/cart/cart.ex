@@ -19,6 +19,10 @@ defmodule Cart do
     {:reply, Enum.count(state), state}
   end
 
+  def handle_call(:clear_items, _from, _state) do
+    {:reply, :ok, %{}}
+  end
+
   def handle_call({:add_item, product_code}, _from, state) do
     product = ProductStore.get_product(product_code)
 
@@ -33,6 +37,10 @@ defmodule Cart do
 
   def total_items() do
     GenServer.call(__MODULE__, :total_items)
+  end
+
+  def clear_items() do
+    GenServer.call(__MODULE__, :clear_items)
   end
 
   def add_item(code) do

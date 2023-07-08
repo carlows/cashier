@@ -25,7 +25,7 @@ defmodule TwoThirdsDiscountTest do
                price: ~M[11_23]GBP
              },
              quantity: 3,
-             total_amount: ~M[22_47]GBP
+             total_amount: ~M[22_46]GBP
            } = result
   end
 

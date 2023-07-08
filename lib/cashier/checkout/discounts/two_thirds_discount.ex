@@ -32,8 +32,14 @@ defmodule TwoThirdsDiscount do
   end
 
   defp calculate_two_thirds(price, quantity) do
-    price
-    |> Money.multiply(Decimal.div(2, 3))
-    |> Money.multiply(quantity)
+    {:ok, result} =
+      price
+      |> Money.to_decimal()
+      |> Decimal.div(3)
+      |> Decimal.mult(2)
+      |> Decimal.mult(quantity)
+      |> Money.parse()
+
+    result
   end
 end

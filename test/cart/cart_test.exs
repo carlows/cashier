@@ -49,6 +49,13 @@ defmodule CartTest do
     assert {:error, "Product not found"} = result
   end
 
+  test "Cart.clear_items/1 cleans the cart state" do
+    Cart.add_item("GR1")
+    assert Cart.total_items() == 1
+    Cart.clear_items()
+    assert Cart.total_items() == 0
+  end
+
   test "Cart.get_items/0 returns all the items in the cart as a list" do
     Cart.add_item("GR1")
     Cart.add_item("SR1")
