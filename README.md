@@ -70,3 +70,30 @@ Cashier.scan_item("CF1")
 
 Cashier.print_totals()
 ```
+
+The print_totals function accepts an optional configuration, which you might use to change the rules aplpies to the discounts:
+
+```
+[
+    %{
+      product_code: "GR1",
+      discount: BuyOneGetOne,
+      minimum: 1
+    },
+    %{
+      product_code: "SR1",
+      discount: FixedDiscount,
+      minimum: 3,
+      deduct_amount: ~M[0_50]
+    },
+    %{
+      product_code: "CF1",
+      discount: TwoThirdsDiscount,
+      minimum: 3
+    }
+  ]
+  ```
+
+  A rule can be applied to a product code, and some rules (such as FixedDiscount) have extra parameters as the deduct_amount. More products and rules can be added as needed.
+
+  Important: for simplicity, only the first found rule per product_code will be applied, duplicates will be ignored.
