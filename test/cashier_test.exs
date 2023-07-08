@@ -36,7 +36,7 @@ defmodule CashierTest do
     end)
 
     assert capture_io(fn -> Cashier.print_totals() end) ==
-             "Code: CF1\tProduct: Coffee\tQuantity: 1\tItem Total: £11.23\nCode: GR1\tProduct: Green Tea\tQuantity: 3\tItem Total: £6.22\tRemarks: You get one Green Tea for free with our BuyOneGetOne promotion!\nCode: SR1\tProduct: Strawberries\tQuantity: 1\tItem Total: £5.00\nCheckout total: £22.45\n"
+             "Code: CF1 - Product: Coffee - Quantity: 1 - Item Total: £11.23\nCode: GR1 - Product: Green Tea - Quantity: 3 - Item Total: £6.22 - Remarks: You get one Green Tea for free with our BuyOneGetOne promotion!\nCode: SR1 - Product: Strawberries - Quantity: 1 - Item Total: £5.00\nCheckout total: £22.45\n"
   end
 
   test "Cashier.print_totals with example 2" do
@@ -46,7 +46,7 @@ defmodule CashierTest do
     end)
 
     assert capture_io(fn -> Cashier.print_totals() end) ==
-             "Code: GR1\tProduct: Green Tea\tQuantity: 2\tItem Total: £3.11\tRemarks: You get one Green Tea for free with our BuyOneGetOne promotion!\nCheckout total: £3.11\n"
+             "Code: GR1 - Product: Green Tea - Quantity: 2 - Item Total: £3.11 - Remarks: You get one Green Tea for free with our BuyOneGetOne promotion!\nCheckout total: £3.11\n"
   end
 
   test "Cashier.print_totals with example 3" do
@@ -58,7 +58,7 @@ defmodule CashierTest do
     end)
 
     assert capture_io(fn -> Cashier.print_totals() end) ==
-             "Code: GR1\tProduct: Green Tea\tQuantity: 2\tItem Total: £3.11\tRemarks: We added one extra Green Tea for free with our BuyOneGetOne promotion!\nCode: SR1\tProduct: Strawberries\tQuantity: 3\tItem Total: £13.50\nCheckout total: £16.61\n"
+             "Code: GR1 - Product: Green Tea - Quantity: 2 - Item Total: £3.11 - Remarks: We added one extra Green Tea for free with our BuyOneGetOne promotion!\nCode: SR1 - Product: Strawberries - Quantity: 3 - Item Total: £13.50\nCheckout total: £16.61\n"
   end
 
   test "Cashier.print_totals with example 4" do
@@ -71,6 +71,6 @@ defmodule CashierTest do
     end)
 
     assert capture_io(fn -> Cashier.print_totals() end) ==
-             "Code: CF1\tProduct: Coffee\tQuantity: 3\tItem Total: £22.46\nCode: GR1\tProduct: Green Tea\tQuantity: 2\tItem Total: £3.11\tRemarks: We added one extra Green Tea for free with our BuyOneGetOne promotion!\nCode: SR1\tProduct: Strawberries\tQuantity: 1\tItem Total: £5.00\nCheckout total: £30.57\n"
+             "Code: CF1 - Product: Coffee - Quantity: 3 - Item Total: £22.46\nCode: GR1 - Product: Green Tea - Quantity: 2 - Item Total: £3.11 - Remarks: We added one extra Green Tea for free with our BuyOneGetOne promotion!\nCode: SR1 - Product: Strawberries - Quantity: 1 - Item Total: £5.00\nCheckout total: £30.57\n"
   end
 end
