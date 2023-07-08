@@ -52,7 +52,7 @@ defmodule Cashier do
   end
 
   defp print_scanned_item({:error, "Product not found"}),
-  do: IO.puts("Sorry, cannot scan this product!")
+    do: IO.puts("Sorry, cannot scan this product!")
 
   defp print_scanned_item({:ok, %CartItem{} = item}) do
     IO.puts(
